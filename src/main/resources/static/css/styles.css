@@ -1,0 +1,34 @@
+h1{
+	padding-top: 100px;
+	padding-bottom: 30px;
+}
+
+h3{
+	padding-bottom: 30px;
+}
+
+.push{
+	padding-top: 100px;
+}
+
+.spacing{
+	padding: 20px;
+}
+
+#centre{
+	margin: auto;
+	width: 50%;
+}
+
+.centre-text{
+	text-align: center;
+}
+
+#btn{
+	padding: 15px;
+}
+
+.centre {
+  padding-top: 200px;
+  margin-left: 780px;
+}
