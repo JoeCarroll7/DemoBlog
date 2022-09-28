@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.JoeBlog.Post.Post;
-import com.JoeBlog.Post.PostService;
+import com.JoeBlog.model.Post;
+import com.JoeBlog.service.PostService;
 
 @Controller
 @RequestMapping("/posts")

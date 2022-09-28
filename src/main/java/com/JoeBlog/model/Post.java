@@ -1,4 +1,4 @@
-package com.JoeBlog.Post;
+package com.JoeBlog.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
