@@ -24,18 +24,19 @@ public class EmailService implements EmailSender {
 	@Async
 	public void send(String toEmail, String email) {
 		try {
-			MimeMessage mineMessage = javaMailSender.createMimeMessage();
-			MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mineMessage, "utf-8");
-			mimeMessageHelper.setText("test", true);
+			MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+			MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, "utf-8");
+			mimeMessageHelper.setText(email, true);
 			mimeMessageHelper.setTo(toEmail);
 			mimeMessageHelper.setSubject("Confirm your email");
 			mimeMessageHelper.setFrom("joeapptestermail@gmail.com");
+			javaMailSender.send(mimeMessage);
 		}catch(MessagingException e) {
 			LOGGER.error("failed to send email", e);
 			throw new IllegalStateException("failed to send");
 		}
 	}
-	
+	/*
 	public void testEmail(String email, String content) {
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setFrom("joeapptestermail@gmail.com");
@@ -45,5 +46,5 @@ public class EmailService implements EmailSender {
 		
 		javaMailSender.send(message);
 	}
-
+	*/
 }
