@@ -39,6 +39,10 @@ public class User implements UserDetails {
 		this.accountLocked = accountLocked;
 		this.accountEnabled = accountEnabled;
 	}
+	
+	public User(String email) {
+		this.email = email;
+	}
 
 	public User(Integer id, String firstName, String userName, String email,
 			String password, UserRole userRole,

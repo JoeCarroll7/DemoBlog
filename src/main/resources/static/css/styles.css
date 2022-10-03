@@ -20,6 +20,11 @@ h3{
 	width: 50%;
 }
 
+.current-user{
+	float: right;
+	margin-right: 300px;
+}
+
 .centre-text{
 	text-align: center;
 }

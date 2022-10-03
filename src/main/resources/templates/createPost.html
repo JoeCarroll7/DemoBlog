@@ -15,11 +15,12 @@
 	</div>
 	
 	<form th:object="${postData}"
-		  th:action="@{/posts/createBlogPost}"
+		  
+		  th:action="@{/posts/createPost}"
 		  method="post">
-		  <div class="centre-text">
+		  <div class="centre-text" th:object="${user}"> <!--   -->
 		  	<h3>UserName</h3>
-		  	<input class="form-control mx-auto" style="width: 400px" id="userName" type=text th:field="*{userName}">
+		  	<input class="form-control mx-auto centre-text" id="username" style="width: 400px;" th:field="${user.email}"readonly>
 		  </div>
 		  <div>
 			<label for="blogPost"></label>

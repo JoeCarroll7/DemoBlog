@@ -25,11 +25,14 @@ public class WebSecurityConfig{
     	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
             .authorizeHttpRequests()
-            .antMatchers("/api/v*/**")//
+            .antMatchers("/posts/registration/**")
             .permitAll()
             .anyRequest()
             .authenticated().and()
-            .formLogin();
+            .formLogin()
+            .loginPage("/posts/login").loginProcessingUrl("/posts/login")
+            .defaultSuccessUrl("/posts")
+            .permitAll();
         
         	return http.build();
 	    }

@@ -10,9 +10,9 @@
 <body>
 	<div th:replace="fragments/navbar"></div>
 
-	<h1 class="centre-text">Blog Posts</h1>
+	<h1 class="centre-text">All your posts</h1>
 	
-	<div class="card centre-text spacing mx-auto" style="width: 18rem;" th:each="post : ${posts}" th:object="${user}">
+	<div class="card centre-text spacing mx-auto" style="width: 18rem;" th:each="post : ${userPosts}" th:object="${user}">
 	
 				<div class="pb-2" th:text="| Post id: ${post.id} - Username: ${user.email}"></div>
 					
@@ -22,3 +22,5 @@
 	<div th:replace="fragments/footer"></div>
 </body>
 </html>
+<!--				<div class="pb-2" th:text="| Post id: ${userPosts.id}"></div>
+  -->

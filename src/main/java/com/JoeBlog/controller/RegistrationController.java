@@ -24,7 +24,7 @@ public class RegistrationController {
 	
 	private RegistrationService registrationService;
 	
-	@GetMapping("api/v1/registration")
+	@GetMapping("/posts/registration")
 	public String getAndCreateUser(Model model) {
 		RegistrationRequest registrationRequest = new RegistrationRequest();
 		model.addAttribute("requestData", registrationRequest);
@@ -32,22 +32,16 @@ public class RegistrationController {
 		return "registration";
 	}
 	
-	@PostMapping("/api/v1/registration")
+	@PostMapping("posts/registration")
 	public String register(@ModelAttribute("requestData") RegistrationRequest parameters, Model model) {
-		System.out.println("Confirm your email to login\n"
-				+ "redirecting to login page in 10 seconds");
-		try {
-			Thread.sleep(100);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		
 		registrationService.register(parameters);
 		
 		return "redirect:/login";
 		
 	}
 	                                                              
-	@GetMapping(path = "/api/v1/registration/confirm")
+	@GetMapping(path = "posts/registration/confirm")
 	public String confirm(@RequestParam("token") String token) {
 		registrationService.confirmToken(token);
 		System.out.println("confirm ran");
