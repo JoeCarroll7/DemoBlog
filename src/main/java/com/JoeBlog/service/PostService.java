@@ -12,7 +12,11 @@ public interface PostService {
 	
 	void deletePost(Post post);
 	
+	Post editPost(Post post);
+	
 	List<Post> getPosts();
 	
 	List<Post> findAllByUserName(String userName);
+	
+	Post getPostWithId(Integer id);
 }

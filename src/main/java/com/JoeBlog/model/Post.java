@@ -6,8 +6,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 @Entity
 @Table
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Post {
 	
 	private @Id @GeneratedValue @Column Integer id;
@@ -34,12 +41,7 @@ public class Post {
 		this.blogPost = blogPost;
 	}
 	
-	public Post() {
-		super();
-	}
-	
 	public Post(String userName, String blogPost) {
-		super();
 		this.userName = userName;
 		this.blogPost = blogPost;
 	}

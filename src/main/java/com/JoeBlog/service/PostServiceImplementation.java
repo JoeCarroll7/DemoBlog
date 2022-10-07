@@ -9,7 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.JoeBlog.model.Post;
-import com.JoeBlog.model.PostRepository;
+import com.JoeBlog.repository.PostRepository;
 
 import lombok.NoArgsConstructor;
 
@@ -27,10 +27,22 @@ public class PostServiceImplementation implements PostService {
 		Post postFinal = new Post(currentUser, post.getBlogPost());
 		return postRepository.save(postFinal);
 	}
+	
+	@Override
+	public Post editPost(Post post) {
+		String currentUser = getCurrentUser();
+		Post postFinal = new Post(post.getId(), currentUser, post.getBlogPost());
+		return postRepository.save(postFinal);
+	}
 
 	@Override
 	public void deletePost(Post post) {
 		postRepository.deleteById(post.getId());
+	}
+	
+	@Override
+	public Post getPostWithId(Integer id) {
+		return postRepository.getById(id);
 	}
 
 	@Override

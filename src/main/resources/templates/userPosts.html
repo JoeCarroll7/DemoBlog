@@ -6,20 +6,37 @@
     <link href="/css/styles.css" rel="stylesheet">
  	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <title>PostList</title>
+    <script type="text/javascript">
+    function test(){
+    	alert("works!");
+    }
+    </script>
 </head>
 <body>
 	<div th:replace="fragments/navbar"></div>
-
+	
 	<h1 class="centre-text">All your posts</h1>
 	
-	<div class="card centre-text spacing mx-auto" style="width: 18rem;" th:each="post : ${userPosts}" th:object="${user}">
-	
-				<div class="pb-2" th:text="| Post id: ${post.id} - Username: ${user.email}"></div>
-					
-				<div th:text="|${post.blogPost}"></div>			
-	</div>
+		<div class="card centre-text spacing mx-auto mb-3" style="width: 36rem;" th:each="post : ${userPosts}">
+			 	<form>
+					<div class="pb-2" th:text="| Post id: ${post.id}"></div>
+						
+					<div th:text="|${post.blogPost}"></div>
+					<div>
+					<a th:href="@{/posts/userPosts/editPost/{id}(id=${post.id})}">
+           				<button type="button" class="btn btn-info mx-auto mt-2 mb-2 text-light">Edit</button>
+           			</a>
+           			</div>
+           			<div>  
+        			<a th:href="@{/posts/userPosts/{id}(id=${post.id})}">
+           				<button type="button" class="btn btn-danger mx-auto mb-2 text-light">Delete</button>
+           			</a>	
+           			</div>									
+				</form>			
+		</div>
 	
 	<div th:replace="fragments/footer"></div>
+	
 </body>
 </html>
 <!--				<div class="pb-2" th:text="| Post id: ${userPosts.id}"></div>

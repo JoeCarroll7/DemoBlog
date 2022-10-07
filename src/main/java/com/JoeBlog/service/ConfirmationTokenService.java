@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.JoeBlog.model.ConfirmationToken;
-import com.JoeBlog.model.ConfirmationTokenRepository;
+import com.JoeBlog.repository.ConfirmationTokenRepository;
 
 import lombok.AllArgsConstructor;
 

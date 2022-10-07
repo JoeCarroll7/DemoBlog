@@ -25,6 +25,10 @@ h3{
 	margin-right: 300px;
 }
 
+.btn-danger,.btn-info{
+	width: 25%;
+}
+
 .centre-text{
 	text-align: center;
 }

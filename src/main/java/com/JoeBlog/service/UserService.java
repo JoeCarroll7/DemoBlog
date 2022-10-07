@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.JoeBlog.model.ConfirmationToken;
 import com.JoeBlog.model.User;
-import com.JoeBlog.model.UserRepository;
+import com.JoeBlog.repository.UserRepository;
 
 import lombok.AllArgsConstructor;
 
