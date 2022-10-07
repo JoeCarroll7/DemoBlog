@@ -25,7 +25,7 @@
 			<label for="blogPost"></label>
 			<textarea class="form-control mx-auto" style="width: 400px; height: 250px" id="blogPost" th:field="*{blogPost}" th:placeholder="${blogPost}"></textarea>
 		  </div>
-		  <div class="text-center">
+		  <div class="col text-center">
 		  	<button th:href="@{/posts/userPosts}" type=submit class="position-relative btn btn-primary centre mt-3 mb-3" id="btn">Create Post</button>
 		  </div>
 	</form>
