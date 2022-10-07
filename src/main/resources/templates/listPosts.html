@@ -12,9 +12,9 @@
 
 	<h1 class="centre-text">Blog Posts</h1>
 	
-	<div class="centre-text spacing" th:each="post : ${posts}">
+	<div class="card centre-text spacing mx-auto mb-3" style="width: 36rem;" th:each="post : ${posts}" th:object="${user}">
 	
-				<div class="pb-2" th:text="|${post.id} - ${post.userName}"></div>
+				<div class="mb-2" th:text="| Post id: ${post.id} - Username: ${user.email}"></div>
 					
 				<div th:text="|${post.blogPost}"></div>			
 	</div>

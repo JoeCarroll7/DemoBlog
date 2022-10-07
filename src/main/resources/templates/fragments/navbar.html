@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security5">
 <head th:fragment="navbar">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    
+<script type="text/javascript">
+	function redirectLogin(){
+		window.top.location.href = "/posts/login";
+	}
+	function logout(){
+		alert("You have been logged out")
+		window.top.location.href = "/logout";
+	}
+</script>
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
@@ -17,16 +26,34 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/posts">Posts</a>
+          <a class="nav-link" aria-current="page" href="/posts">Posts</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/posts/createPost">Create Post</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/posts/register">Register</a>
+        <li sec:authorize="isAuthenticated()" class="nav-item">
+          <a class="nav-link" href="/posts/registration">Register</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/posts/register">Login</a>
+          <a class="nav-link" href="/posts/userPosts">Your Posts</a>
+        </li>
+        <li sec:authorize="!isAuthenticated()" class="nav-item">
+          <a class="nav-link" onClick="redirectLogin()">Login</a>
+        </li>
+        <li sec:authorize="isAuthenticated()" class="nav-item" >
+          <a class="nav-link" onClick="logout()">Log out</a>
+        </li>
+        <li>
+        <div style="position:fixed; top:0; right:0; border:0;" sec:authorize="isAuthenticated()">
+ 			 <a>Welcome <span sec:authentication="name">name?</span></a>
+		</div>
+        
+        
+        <!--  
+        <a class="right" th:href="@{/logout}">Logout</a>
+        </span>
+         <a th:text="|logged in as: ${user.email}" style="position: fixed; top: 0; right: 0; border: 0;"></a>
+         -->
         </li>
         
       </ul>
