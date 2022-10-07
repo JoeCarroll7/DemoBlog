@@ -31,10 +31,10 @@
         <li class="nav-item">
           <a class="nav-link" href="/posts/createPost">Create Post</a>
         </li>
-        <li sec:authorize="isAuthenticated()" class="nav-item">
+        <li sec:authorize="!isAuthenticated()" class="nav-item">
           <a class="nav-link" href="/posts/registration">Register</a>
         </li>
-        <li class="nav-item">
+        <li sec:authorize="isAuthenticated()" class="nav-item">
           <a class="nav-link" href="/posts/userPosts">Your Posts</a>
         </li>
         <li sec:authorize="!isAuthenticated()" class="nav-item">
@@ -47,14 +47,6 @@
         <div style="position:fixed; top:0; right:0; border:0;" sec:authorize="isAuthenticated()">
  			 <a>Welcome <span sec:authentication="name">name?</span></a>
 		</div>
-        
-        
-        <!--  
-        <a class="right" th:href="@{/logout}">Logout</a>
-        </span>
-         <a th:text="|logged in as: ${user.email}" style="position: fixed; top: 0; right: 0; border: 0;"></a>
-         -->
-        </li>
         
       </ul>
       
