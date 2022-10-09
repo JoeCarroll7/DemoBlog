@@ -15,25 +15,13 @@ public class LoginController {
 	@GetMapping("/posts/login")
 	public String login() {
 	
-	   
-	   /*
-	    * String username = SecurityContextHolder.getContext().getAuthentication().getName();
-	   System.out.println(username);
-       if (!username.equals("anonymousUser")) {
-    	   isLoggedIn(true);
-           return "redirect:/posts"; 
-       } else {
-           
-       }
-       public boolean isLoggedIn(boolean loggedIn) {
-		return loggedIn;
-	}*/
        return "login";
 	}
 	
-	
-	
-	
-	
-	
+	@GetMapping("/")
+	public String loginRedirect() {
+
+       return "redirect:/posts";
+       
+	}		
 }
