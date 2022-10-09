@@ -24,13 +24,15 @@ public class WebSecurityConfig{
 		@Bean
     	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
-            .authorizeHttpRequests()
-            .antMatchers("/posts/registration/**")
+            .authorizeHttpRequests()                       
+            .antMatchers("/posts/**", "/resources/**")
             .permitAll()
             .anyRequest()
-            .authenticated().and()
+            .permitAll()
+            .and()
             .formLogin()
             .loginPage("/posts/login").loginProcessingUrl("/posts/login")
+            .usernameParameter("username").passwordParameter("password")
             .defaultSuccessUrl("/posts")
             .permitAll();
         
@@ -38,6 +40,7 @@ public class WebSecurityConfig{
 	    }
 	 	
 	 	protected void configure(AuthenticationManagerBuilder authentication) throws Exception {
+	 		
 	 		authentication.authenticationProvider(daoAuthenticationProvider());
 	 		
 	 	}
