@@ -9,8 +9,7 @@
 		window.top.location.href = "/posts/login";
 	}
 	function logout(){
-		alert("You have been logged out")
-		window.top.location.href = "/logout";
+		alert("You have been logged out");	
 	}
 </script>
 </head>
@@ -38,10 +37,10 @@
           <a class="nav-link" href="/posts/userPosts">Your Posts</a>
         </li>
         <li sec:authorize="!isAuthenticated()" class="nav-item">
-          <a class="nav-link" onClick="redirectLogin()">Login</a>
+          <a class="nav-link" href="/posts/login">Login</a>
         </li>
         <li sec:authorize="isAuthenticated()" class="nav-item" >
-          <a class="nav-link" onClick="logout()">Log out</a>
+          <a class="nav-link" href="/logout" onClick="logout()">Log out</a>
         </li>
         <li>
         <div style="position:fixed; top:0; right:0; border:0;" sec:authorize="isAuthenticated()">
