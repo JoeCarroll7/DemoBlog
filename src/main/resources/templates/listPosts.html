@@ -14,7 +14,7 @@
 	
 	<div class="card centre-text spacing mx-auto mb-3" style="width: 36rem;" th:each="post : ${posts}" th:object="${user}">
 	
-				<div class="mb-2" th:text="| Post id: ${post.id} - Username: ${user.email}"></div>
+				<div class="mb-2" th:text="| Post id: ${post.id} - Username: ${post.userName}"></div>
 					
 				<div th:text="|${post.blogPost}"></div>			
 	</div>
